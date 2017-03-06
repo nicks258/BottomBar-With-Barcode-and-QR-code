@@ -9,19 +9,19 @@ public class TabMessage {
 
         switch (menuItemId) {
             case R.id.tab_recents:
-                message += "recents";
+                message += "OverView";
                 break;
             case R.id.tab_favorites:
-                message += "favorites";
+                message += "Clients";
                 break;
             case R.id.tab_nearby:
-                message += "nearby";
+                message += "App Rf";
                 break;
             case R.id.tab_friends:
-                message += "friends";
+                message += "Access Point";
                 break;
             case R.id.tab_food:
-                message += "food";
+                message += "Switches";
                 break;
         }
 

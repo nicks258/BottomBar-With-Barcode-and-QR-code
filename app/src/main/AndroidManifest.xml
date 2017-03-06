@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bottombar.sample">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,18 +12,55 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".FullScannerActivity"
+            android:label="@string/scanner_activity"
+            android:theme="@style/AppOverlayTheme"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+        </activity>
+        <activity android:name=".ThreeTabsActivity" />
+        <activity
+            android:name=".FiveColorChangingTabsActivity"
+            android:theme="@style/AppTheme.TransNav">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ThreeTabsActivity" />
-        <activity android:name=".FiveColorChangingTabsActivity" android:theme="@style/AppTheme.TransNav" />
-        <activity android:name=".ThreeTabsQRActivity" android:theme="@style/AppTheme.TransNav" />
+        <activity
+            android:name=".ThreeTabsQRActivity"
+            android:theme="@style/AppTheme.TransNav" />
         <activity android:name=".BadgeActivity" />
         <activity android:name=".CustomColorAndFontActivity" />
+        <activity android:name=".Code_39"
+            android:label="Code 39 Scanner"
+            android:theme="@style/AppOverlayTheme"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
+        </activity>
+        <activity android:name=".Code_93"
+            android:label="Code 93 Scanner"
+            android:theme="@style/AppOverlayTheme"
+            android:uiOptions="splitActionBarWhenNarrow">
+        <meta-data
+            android:name="android.support.UI_OPTIONS"
+            android:value="splitActionBarWhenNarrow" />
+        </activity>
+        <activity android:name=".Code_128"
+            android:label="Code 128 Scanner"
+            android:theme="@style/AppOverlayTheme"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />>
+        </activity>
     </application>
 
 </manifest>

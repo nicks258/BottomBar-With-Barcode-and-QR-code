@@ -25,6 +25,7 @@ configurations.all {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':bottom-bar')
+    compile project(':zxing')
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
     compile 'com.android.support:design:' + rootProject.ext.supportLibraryVersion
 
