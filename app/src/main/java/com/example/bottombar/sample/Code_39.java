@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -154,6 +155,7 @@ public class Code_39 extends BaseScannerActivity implements MessageDialogFragmen
         showMessageDialog("Contents = " + rawResult.getText() + ", Format = " + rawResult.getBarcodeFormat().toString());
         editor =  settings.edit();
         editor.putString("CODE39",rawResult.getText());
+        Log.d("CODE39",rawResult.getText());
         editor.commit();
     }
 
@@ -181,8 +183,9 @@ public class Code_39 extends BaseScannerActivity implements MessageDialogFragmen
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         // Resume the camera
-        Intent Home = new Intent(Code_39.this,FiveColorChangingTabsActivity.class);
-        startActivity(Home);
+//        Intent Home = new Intent(Code_39.this,FiveColorChangingTabsActivity.class);
+//        startActivity(Home);
+        this.finish();
     }
 
     @Override

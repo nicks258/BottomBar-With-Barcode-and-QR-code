@@ -27,6 +27,7 @@ import java.util.List;
 public class FiveColorChangingTabsActivity extends AppCompatActivity {
     private TextView messageView;
     SharedPreferences settings;
+    SharedPreferences.Editor editor;
     private List<String> fruits_list;
     private String qrcode,code1,code2,code3;
     private BottomBar bottomBar;
@@ -38,7 +39,7 @@ public class FiveColorChangingTabsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_color_changing_tabs);
         lv = (ListView) findViewById(R.id.lv);
         settings = FiveColorChangingTabsActivity.this.getSharedPreferences("ARUBA", Context.MODE_PRIVATE);
-
+        Log.i("Agian","Again");
         // Initializing a new String Array
         String[] fruits = new String[] {
                 "Welcome To Aruba Networks",
@@ -53,59 +54,7 @@ public class FiveColorChangingTabsActivity extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, fruits_list);
 
-        qrcode =settings.getString("QR_CODE", null);
-        code1 = settings.getString("ODE39", null);
-        code2 = settings.getString("CODE93", null);
-        code3 = settings.getString("CODE128", null);
-        // DataBind ListView with items from ArrayAdapter
         lv.setAdapter(arrayAdapter);
-//        fruits_list.add("Loquat");
-        try {
-            if(!code1.equals(null))
-            {
-                fruits_list.add(code1);
-            }
-
-        }catch (Exception e){
-
-        }
-        try {
-            if(!qrcode.equals(null))
-            {
-                fruits_list.add(qrcode);
-            }
-
-        }catch (Exception e){
-
-        }
-        try {
-            if(!code2.equals(null))
-            {
-                fruits_list.add(code2);
-            }
-
-        }catch (Exception e){
-
-        }
-        try {
-            if(!code3.equals(null))
-            {
-                fruits_list.add(code3);
-            }
-
-        }catch (Exception e){
-
-        }
-
-
-
-                /*
-                    notifyDataSetChanged ()
-                        Notifies the attached observers that the underlying
-                        data has been changed and any View reflecting the
-                        data set should refresh itself.
-                 */
-        arrayAdapter.notifyDataSetChanged();
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
@@ -152,6 +101,83 @@ public class FiveColorChangingTabsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        qrcode =settings.getString("QR_CODE", null);
+        code1 = settings.getString("CODE39", null);
+        code2 = settings.getString("CODE93", null);
+        code3 = settings.getString("CODE128", null);
+        // DataBind ListView with items from ArrayAdapter
+
+//        fruits_list.add("Loquat");
+//        Intent intent = getIntent();
+//        String code = intent.getStringExtra("CODE");
+//        try {
+//              if (!code.equals(null))
+//            {
+//                fruits_list.add(intent.getStringExtra("CODE"));
+//            }
+//
+//        }catch (Exception e){
+//
+//        }
+        try {
+            if(!code1.equals(null))
+            {
+                fruits_list.add(code1);
+                editor =  settings.edit();
+                editor.putString("CODE39",null);
+                editor.commit();
+            }
+
+        }catch (Exception e){
+
+        }
+        try {
+            if(!qrcode.equals(null))
+            {
+                fruits_list.add(qrcode);
+                editor =  settings.edit();
+                editor.putString("QR_CODE",null);
+                editor.commit();
+            }
+
+        }catch (Exception e){
+
+        }
+        try {
+            if(!code2.equals(null))
+            {
+                Log.d("CODE 39",code2);
+                fruits_list.add(code2);
+                editor =  settings.edit();
+                editor.putString("CODE93",null);
+                editor.commit();
+            }
+
+        }catch (Exception e){
+
+        }
+        try {
+            if(!code3.equals(null))
+            {
+                fruits_list.add(code3);
+                editor =  settings.edit();
+                editor.putString("CODE128",null);
+                editor.commit();
+            }
+
+        }catch (Exception e){
+
+        }
+
+
+
+                /*
+                    notifyDataSetChanged ()
+                        Notifies the attached observers that the underlying
+                        data has been changed and any View reflecting the
+                        data set should refresh itself.
+                 */
+        arrayAdapter.notifyDataSetChanged();
 ////        fruits_list.add("Pear");
 //        qrcode =settings.getString("QR_CODE", null);
 //        code1 = settings.getString("ODE39", null);

@@ -185,8 +185,7 @@ public class FullScannerActivity extends BaseScannerActivity implements MessageD
     public void onDialogPositiveClick(DialogFragment dialog) {
         // Resume the camera
         Log.i("Closed","Closed");
-        Intent Home = new Intent(FullScannerActivity.this,FiveColorChangingTabsActivity.class);
-        startActivity(Home);
+        this.finish();
 //        mScannerView.resumeCameraPreview(this);
     }
 

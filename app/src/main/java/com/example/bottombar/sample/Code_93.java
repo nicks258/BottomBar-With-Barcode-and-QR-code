@@ -181,8 +181,7 @@ public class Code_93 extends BaseScannerActivity implements MessageDialogFragmen
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         // Resume the camera
-        Intent Home = new Intent(Code_93.this,FiveColorChangingTabsActivity.class);
-        startActivity(Home);
+        this.finish();
     }
 
     @Override

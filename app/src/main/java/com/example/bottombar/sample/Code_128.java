@@ -155,6 +155,8 @@ public class Code_128 extends BaseScannerActivity implements MessageDialogFragme
         editor =  settings.edit();
         editor.putString("CODE128",rawResult.getText());
         editor.commit();
+
+
     }
 
     public void showMessageDialog(String message) {
@@ -181,8 +183,8 @@ public class Code_128 extends BaseScannerActivity implements MessageDialogFragme
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         // Resume the camera
-        Intent Home = new Intent(Code_128.this,FiveColorChangingTabsActivity.class);
-        startActivity(Home);    }
+        this.finish();
+           }
 
     @Override
     public void onFormatsSaved(ArrayList<Integer> selectedIndices) {
